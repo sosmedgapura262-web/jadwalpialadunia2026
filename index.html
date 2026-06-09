@@ -1,1 +1,683 @@
 
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<link href="https://blogger.googleusercontent.com/img/a/AVvXsEhmFokhcBeu5znJvNMjy8zSfBzxv8hxBHUOVfGb21ZiMlMlASRGwVEY-yihddszPKHDqNSV1M-8zOwL22mxemYfNVn7SYbLHT5xxYnLDBhpjmEp-wMkh8KS44hBl9BzvWj9S8PWgzfkBYDMJ0ElohOkL_D8WEjHtqrPNk-0jBTcy4msC73zoacD_x77lVU" rel="icon" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Jadwal Pertandingan & Prediksi Bola</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,sans-serif;
+}
+
+body{
+    background:url('https://blogger.googleusercontent.com/img/a/AVvXsEgPJER9tUoNM0bLaTdsrd6tSdlGsqpIb7xSvgHOcb4wj-j8rwwAKNw-l0pCtKhsgr5pBPC3WfQmnjdiBbYiDHDgStLT1EbQfaSxR5D4GHY6Pj0All2Vky1j5FIgPvFFa7aRYq9zZHT71YSWA_HZb69dWLx_iB38ADjuTjCRm68oZJGZ_CCORif7rc9-cmk') center center fixed;
+    background-size:cover;
+    color:#fff;
+}
+
+/* HERO */
+
+.hero{
+    position:relative;
+    height:280px;
+    background:url('https://blogger.googleusercontent.com/img/a/AVvXsEj1HWriANZqBRBsz_o1745j2Gs5kLNigfN4DqP9uKID-PHQEUiJ_lVI4fX1QFOxwpIuXWUxOUPQM5lv4TTnycnY_UlUQdl1snU1mfcSEIsL3fQXLQDhR_ta2I8lKjOaYl9GeaKVgp-TwpuSzLvSQ5j4fQy2fRl-Aey3uqakePkVdH_LvkjO1CRSFoZsHyU') center center/cover no-repeat;
+}
+
+.hero::before{
+    content:'';
+    position:absolute;
+    inset:0;
+    background:rgba(0,0,0,.6);
+}
+
+.hero-content{
+    position:relative;
+    z-index:2;
+    height:100%;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    padding:20px;
+}
+
+.hero-content h1{
+    font-size:32px;
+    font-weight:900;
+    margin-bottom:10px;
+}
+
+.hero-content p{
+    color:#ddd;
+    font-size:15px;
+}
+
+/* LOGIN */
+
+.login-btn{
+    position:absolute;
+    top:15px;
+    right:15px;
+    z-index:3;
+    text-decoration:none;
+    background:#00a2ff;
+    color:#fff;
+    padding:10px 18px;
+    border-radius:30px;
+    font-weight:bold;
+}
+
+/* CONTENT */
+
+.container{
+    max-width:700px;
+    margin:auto;
+    padding:15px;
+}
+
+.judul{
+    text-align:center;
+    font-size:24px;
+    font-weight:bold;
+    margin:20px 0;
+}
+
+/* MATCH CARD */
+
+.match-card{
+    background:#1e1e1e;
+    border-left:4px solid #faab0c
+    border-radius:10px;
+    padding:12px;
+    margin-bottom:12px;
+}
+
+.match-time{
+    color:#ffd700;
+    font-size:13px;
+    font-weight:bold;
+    margin-bottom:6px;
+}
+
+.match-team{
+    font-size:16px;
+    font-weight:bold;
+    line-height:1.4;
+    margin-bottom:6px;
+}
+
+.match-league{
+    color:#bbb;
+    font-size:12px;
+    margin-bottom:8px;
+}
+
+.match-score{
+    display:inline-block;
+    background:#faab0c;
+    padding:6px 10px;
+    border-radius:6px;
+    font-weight:bold;
+}
+
+/* MOBILE */
+
+@media(max-width:768px){
+
+.hero{
+    height:220px;
+}
+
+.hero-content h1{
+    font-size:24px;
+}
+
+.hero-content p{
+    font-size:13px;
+}
+
+.judul{
+    font-size:20px;
+}
+
+.match-team{
+    font-size:14px;
+}
+
+}
+
+</style>
+<link rel="me" href="https://www.blogger.com/profile/09855621936880790105" />
+<meta name='google-adsense-platform-account' content='ca-host-pub-1556223355139109'/>
+<meta name='google-adsense-platform-domain' content='blogspot.com'/>
+</head>
+<style>
+/* RUNNING TEXT */
+.running-text {
+    width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+    background: rgba(0,0,0,0.55);
+    padding: 10px 0;
+    border-radius: 12px;
+}
+
+.running-text span {
+    display: inline-block;
+    padding-left: 100%;
+    color: #ffffff;
+    font-weight: bold;
+    font-size: 16px;
+    animation: marquee 18s linear infinite;
+}
+
+@keyframes marquee {
+    0%   { transform: translateX(0); }
+    100% { transform: translateX(-100%); }
+}
+</style>
+
+
+  <!-- RUNNING TEXT -->
+<div class="col-12 my-2">
+    <div class="running-text">
+        <span>
+            🔥 Prediksi Terupdate Setiap Hari • Jadwal Bola Terlengkap • Bonus Depo 10% Setiap Hari • Deposit Mudah via QRIS • Proses Deposit & Withdraw Tercepat • Hanya di GAPURABOLA 🔥
+        </span>
+    </div>
+</div>
+                      
+ 
+<body>
+
+<div class="hero">
+
+<a href="https://gapuraone.com/" class="login-btn" target="_blank">
+LOGIN
+</a>
+
+<div class="hero-content">
+<h1>⚽ JADWAL & PREDIKSI SEPAK BOLA</h1>
+<p>PREDIKSI TERUPDATE SETIAP HARI HANYA DI GAPURABOLA</p>
+</div>
+
+</div>
+
+<div class="container">
+
+<div class="judul">
+JADWAL & PREDIKSI SCORE 09 JUNI 2026
+</div>
+
+<div class="match-card">
+    <div class="match-time">16:00 WIB</div>
+    <div class="match-team">Equatorial Guinea vs Comoros</div>
+    <div class="match-league">International Friendly Games</div>
+    <div class="match-score">Prediksi: 1 - 0</div>
+</div>
+
+<div class="match-card">
+    <div class="match-time">17:00 WIB</div>
+    <div class="match-team">Cambodia vs Hong Kong</div>
+    <div class="match-league">International Friendly Games</div>
+    <div class="match-score">Prediksi: 1 - 2</div>
+</div>
+
+<div class="match-card">
+    <div class="match-time">18:30 WIB</div>
+    <div class="match-team">Philippines vs Myanmar</div>
+    <div class="match-league">International Friendly Games</div>
+    <div class="match-score">Prediksi: 2 - 1</div>
+</div>
+
+<div class="match-card">
+    <div class="match-time">18:35 WIB</div>
+    <div class="match-team">China vs Thailand</div>
+    <div class="match-league">International Friendly Games</div>
+    <div class="match-score">Prediksi: 1 - 1</div>
+</div>
+
+<div class="match-card">
+    <div class="match-time">19:00 WIB</div>
+    <div class="match-team">Tanzania vs Rwanda</div>
+    <div class="match-league">International Friendly Games</div>
+    <div class="match-score">Prediksi: 1 - 0</div>
+</div>
+
+<div class="match-card">
+    <div class="match-time">19:00 WIB</div>
+    <div class="match-team">Angola vs Central African Republic</div>
+    <div class="match-league">International Friendly Games</div>
+    <div class="match-score">Prediksi: 2 - 1</div>
+</div>
+
+<div class="match-card">
+    <div class="match-time">19:00 WIB</div>
+    <div class="match-team">Kuwait vs Oman</div>
+    <div class="match-league">International Friendly Games</div>
+    <div class="match-score">Prediksi: 1 - 1</div>
+</div>
+
+<div class="match-card">
+    <div class="match-time">19:00 WIB</div>
+    <div class="match-team">Botswana vs Niger</div>
+    <div class="match-league">International Friendly Games</div>
+    <div class="match-score">Prediksi: 1 - 2</div>
+</div>
+
+<div class="match-card">
+    <div class="match-time">19:30 WIB</div>
+    <div class="match-team">Kyrgyzstan vs Palestine</div>
+    <div class="match-league">International Friendly Games</div>
+    <div class="match-score">Prediksi: 1 - 1</div>
+</div>
+
+<div class="match-card">
+    <div class="match-time">20:00 WIB</div>
+    <div class="match-team">Indonesia vs Mozambique</div>
+    <div class="match-league">International Friendly Games</div>
+    <div class="match-score">Prediksi: 2 - 1</div>
+</div>
+
+<div class="match-card">
+    <div class="match-time">20:00 WIB</div>
+    <div class="match-team">Australia U19 vs Cambodia U19</div>
+    <div class="match-league">ASEAN Championship U19</div>
+    <div class="match-score">Prediksi: 3 - 0</div>
+</div>
+
+<div class="match-card">
+    <div class="match-time">21:00 WIB</div>
+    <div class="match-team">Bahrain vs Syria</div>
+    <div class="match-league">International Friendly Games</div>
+    <div class="match-score">Prediksi: 1 - 2</div>
+</div>
+
+<div class="match-card">
+    <div class="match-time">22:00 WIB</div>
+    <div class="match-team">Albania U17 vs Ukraina U17</div>
+    <div class="match-league">U17 UEFA European Championship</div>
+    <div class="match-score">Prediksi: 2 - 1</div>
+</div>
+
+<div class="match-card">
+    <div class="match-time">22:00 WIB</div>
+    <div class="match-team">Tajikistan vs India</div>
+    <div class="match-league">International Friendly Games</div>
+    <div class="match-score">Prediksi: 1 - 2</div>
+</div>
+
+<div class="match-card">
+    <div class="match-time">22:00 WIB</div>
+    <div class="match-team">Armenia vs Moldova</div>
+    <div class="match-league">International Friendly Games</div>
+    <div class="match-score">Prediksi: 2 - 0</div>
+</div>
+
+<div class="match-card">
+    <div class="match-time">22:15 WIB</div>
+    <div class="match-team">Irlandia U21 vs Qatar U21</div>
+    <div class="match-league">U21 Friendly Games</div>
+    <div class="match-score">Prediksi: 2 - 1</div>
+</div>
+
+<div class="match-card">
+    <div class="match-time">23:00 WIB</div>
+    <div class="match-team">DR Congo vs Chile</div>
+    <div class="match-league">International Friendly Games</div>
+    <div class="match-score">Prediksi: 1 - 2</div>
+</div>
+
+<div class="match-card">
+    <div class="match-time">23:00 WIB</div>
+    <div class="match-team">Moldova U21 vs Georgia U21</div>
+    <div class="match-league">U21 Friendly Games</div>
+    <div class="match-score">Prediksi: 1 - 2</div>
+</div>
+
+<div class="match-card">
+    <div class="match-time">23:30 WIB</div>
+    <div class="match-team">Belarus vs Burkina Faso</div>
+    <div class="match-league">International Friendly Games</div>
+    <div class="match-score">Prediksi: 1 - 1</div>
+</div>
+
+<div class="hero-content">
+</div>
+
+<p><br /></p><div class="separator" style="clear: both; text-align: center;"><a href="https://gapuraone.com/" style="margin-left: 1em; margin-right: 1em;"><img alt="" data-original-height="77" data-original-width="250" height="99" src="https://blogger.googleusercontent.com/img/a/AVvXsEg5bRSK-1JURUH3o0lkIoA2BlC1IEv_YQgdTRh7K9oCOmWKeBaXNpbhfG_E6Jcl-4CbkCex3yfRYdJYawWj9fsWQjO75eezucxwA-vW8WMn4tN19ONd5C5x5qkFRdmaM9whK4E35-Y-KpAc2Z7j25ISUTVtj4T0h1VXDbkfDruK7wZoQT1WVvy75nlVRTk=w450-h231" width="320" /></a></div><br /><br /><br /><br /><p></p><div class="container">
+<div class="judul">
+JADWAL & PREDIKSI SCORE 10 JUNI 2026
+</div>
+
+<div class="match-card">
+    <div class="match-time">00:00 WIB</div>
+    <div class="match-team">Hungary vs Kazakhstan</div>
+    <div class="match-league">International Friendly Games</div>
+    <div class="match-score">Prediksi: 2 - 1</div>
+</div>
+
+<div class="match-card">
+    <div class="match-time">00:00 WIB</div>
+    <div class="match-team">Russia vs Trinidad and Tobago</div>
+    <div class="match-league">International Friendly Games</div>
+    <div class="match-score">Prediksi: 1 - 1</div>
+</div>
+
+<div class="match-card">
+    <div class="match-time">00:30 WIB</div>
+    <div class="match-team">San Marino vs Azerbaijan</div>
+    <div class="match-league">International Friendly Games</div>
+    <div class="match-score">Prediksi: 2 - 0</div>
+</div>
+
+<div class="match-card">
+    <div class="match-time">01:00 WIB</div>
+    <div class="match-team">Togo vs Benin</div>
+    <div class="match-league">International Friendly Games</div>
+    <div class="match-score">Prediksi: 1 - 0</div>
+</div>
+
+<div class="match-card">
+    <div class="match-time">01:30 WIB</div>
+    <div class="match-team">Liberia vs Sierra Leone</div>
+    <div class="match-league">International Friendly Games</div>
+    <div class="match-score">Prediksi: 1 - 1</div>
+</div>
+
+<div class="match-card">
+    <div class="match-time">02:00 WIB</div>
+    <div class="match-team">UD Almeria vs Castellon</div>
+    <div class="match-league">LaLiga 2, Promotion Playoffs, Semifinals</div>
+    <div class="match-score">Prediksi: 2 - 1</div>
+</div>
+
+<div class="match-card">
+    <div class="match-time">05:00 WIB</div>
+    <div class="match-team">Cleveland Force SC vs Akron City FC</div>
+    <div class="match-league">USL, League Two</div>
+    <div class="match-score">Prediksi: 3 - 1</div>
+</div>
+
+<div class="match-card">
+    <div class="match-time">06:00 WIB</div>
+    <div class="match-team">Delaware FC vs West Chester United</div>
+    <div class="match-league">USL, League Two</div>
+    <div class="match-score">Prediksi: 1 - 1</div>
+</div>
+
+<div class="match-card">
+    <div class="match-time">06:00 WIB</div>
+    <div class="match-team">Northern Virginia FC vs Charlottesville Blues</div>
+    <div class="match-league">USL, League Two</div>
+    <div class="match-score">Prediksi: 2 - 0</div>
+</div>
+
+<div class="match-card">
+    <div class="match-time">06:00 WIB</div>
+    <div class="match-team">Northern Virginia FC vs Charlottesville Blues</div>
+    <div class="match-league">USL, League Two</div>
+    <div class="match-score">Prediksi: 2 - 1</div>
+</div>
+
+<div class="match-card">
+    <div class="match-time">06:00 WIB</div>
+    <div class="match-team">Northern Virginia FC vs Charlottesville Blues</div>
+    <div class="match-league">USL, League Two</div>
+    <div class="match-score">Prediksi: 2 - 1</div>
+</div>
+
+<div class="match-card">
+    <div class="match-time">06:00 WIB</div>
+    <div class="match-team">Senegal vs Saudi Arabia</div>
+    <div class="match-league">International Friendly Games</div>
+    <div class="match-score">Prediksi: 2 - 0</div>
+</div>
+
+<div class="match-card">
+    <div class="match-time">07:00 WIB</div>
+    <div class="match-team">Laredo Heat SC vs Lonestar</div>
+    <div class="match-league">USL, League Two</div>
+    <div class="match-score">Prediksi: 2 - 1</div>
+</div>
+
+<div class="match-card">
+    <div class="match-time">07:00 WIB</div>
+    <div class="match-team">Birmingham Legion FC vs Corpus Christi FC</div>
+    <div class="match-league">USL Cup</div>
+    <div class="match-score">Prediksi: 2 - 0</div>
+</div>
+
+<div class="match-card">
+    <div class="match-time">08:00 WIB</div>
+    <div class="match-team">Argentina vs Iceland</div>
+    <div class="match-league">International Friendly Games</div>
+    <div class="match-score">Prediksi: 1 - 2</div>
+</div>
+
+<div class="match-card">
+    <div class="match-time">08:00 WIB</div>
+    <div class="match-team">Bolivia vs Algeria</div>
+    <div class="match-league">International Friendly Games</div>
+    <div class="match-score">Prediksi: 1 - 2</div>
+</div>
+
+<div class="match-card">
+    <div class="match-time">08:00 WIB</div>
+    <div class="match-team">Iraq vs Venezuela</div>
+    <div class="match-league">International Friendly Games</div>
+    <div class="match-score">Prediksi: 1 - 2</div>
+</div>
+
+<div class="match-card">
+    <div class="match-time">18:30 WIB</div>
+    <div class="match-team">DR Congo U20 vs Arab Saudi</div>
+    <div class="match-league">Tournoi Maurice Revello</div>
+    <div class="match-score">Prediksi: 0 - 3</div>
+</div>
+
+<div class="match-card">
+    <div class="match-time">22:30 WIB</div>
+    <div class="match-team">Leca FC vs GD Vitoria Sernache</div>
+    <div class="match-league">Portugal Cup Final</div>
+    <div class="match-score">Prediksi: 1 - 1</div>
+</div>
+
+<div class="match-card">
+    <div class="match-time">23:00 WIB</div>
+    <div class="match-team">Pakistan vs Afghanistan</div>
+    <div class="match-league">International Friendly Games</div>
+    <div class="match-score">Prediksi: 1 - 2</div>
+</div>
+
+</div>
+
+</tbody>
+</table>
+</google-sheets-html-origin>
+
+<div class="separator"></div>
+    
+  </tbody>
+</table>
+</google-sheets-html-origin>
+
+</div>
+<div style="text-align:center; margin-top:40px;">
+
+    <div style="
+        font-size:22px;
+        font-weight:bold;
+        margin-bottom:20px;
+        font-family:Verdana,sans-serif;
+        color:#ffffff;
+    ">
+        Betting pertandingan hanya di<br>
+        ╰┈➤
+        <a href="https://gapuraone.com/"
+           target="_blank"
+           style="color:#FFFFFF;text-decoration:none;">
+           GAPURABOLA
+        </a>
+        <<
+    </div>
+
+    <a href="https://gapuraone.com/" target="_blank">
+        <img src="https://blogger.googleusercontent.com/img/a/AVvXsEijByGFbaNQkLYUFW0BlA8N0Q0H_7Yf019XRtIu5msAmNyDzOb1E92UZTSblnajf42e7AUD2PbpaML78Z1h655nApYVwKl2FjRgDM55WqQk6olXqL8hi-gxiOm8vOM3WB0V5Fm5hLqtgLoKuN0h-OGenQrPrfHdNzphW6P1AO7I4d5STrs-oieqPsaACp8=w485-h518"
+             style="max-width:100%; border-radius:10px;">
+    </a>
+
+    <div style="
+        margin-top:20px;
+        margin-bottom:20px;
+        font-size:20px;
+        font-weight:bold;
+        color:#FFFFFF;
+        font-family:Verdana,sans-serif;
+    ">
+        PROVIDER SPORTBOOK TERBAIK #GAPURABOLA
+    </div>
+
+    <a href="https://gapuraone.com/" target="_blank">
+        <img src="https://blogger.googleusercontent.com/img/a/AVvXsEiO4GwYp1l63lfyLgHCY1tWzwp-gFrpJpwSA0SIowUAvzE7vpVDScuGp0h0MTF80WrOu7viYShpqdgVaVgd8VJYhh7EQV12Ti1b3Z48M-oSx1tVA_eC6vrqsvqJn7GO5OpNt5-XfH_sfAOC2M5njWWdPRBGdTcI5HdxErJbw3J01JlxP0QTRCgB_xnM1HM"
+             style="max-width:400px;width:100%;">
+    </a>
+<!-- isi tabel kamu di sini -->
+<table>
+  ...
+</table>
+
+<!-- TARUH SCRIPT DI SINI -->
+<script>
+document.addEventListener("keydown", function (e) {
+  // F12
+  if (e.key === "F12") {
+    e.preventDefault();
+    return false;
+  }
+
+  // Ctrl + Shift + I
+  if (e.ctrlKey && e.shiftKey && e.key === "I") {
+    e.preventDefault();
+    return false;
+  }
+
+  // Ctrl + Shift + J
+  if (e.ctrlKey && e.shiftKey && e.key === "J") {
+    e.preventDefault();
+    return false;
+  }
+
+  // Ctrl + U
+  if (e.ctrlKey && e.key === "U") {
+    e.preventDefault();
+    return false;
+  }
+});
+</script>
+<script>
+document.addEventListener("keydown", function (e) {
+  if (
+    e.key === "F12" ||
+    (e.ctrlKey && e.shiftKey && ["I", "J", "C"].includes(e.key)) ||
+    (e.ctrlKey && e.key === "U")
+  ) {
+    e.preventDefault();
+    e.stopPropagation();
+    return false;
+  }
+});
+</script>
+<!-- Start of  Zendesk Widget script -->
+<script id="ze-snippet" src="https://static.zdassets.com/ekr/snippet.js?key=20e4d3db-f557-4a4a-83f6-9e08ae41ee8f"> </script>
+<!-- End of  Zendesk Widget script -->
+</div>
+<div class="sosmed-container">
+
+<div class="sosmed-text">
+<marquee>🔰 KLIK DISINI 🔰FOLLOW ALL SOSMED 𝗚𝗔𝗣𝗨𝗥𝗔𝗕𝗢𝗟𝗔 📢 𝑹𝑬𝑺𝑷𝑶𝑵 𝑺𝑬𝑪𝑬𝑷𝑨𝑻 𝑲𝑰𝑳𝑨𝑻 ⚡️</marquee>
+</div>
+
+<div class="sosmed-menu">
+<a href="https://t.me/OFFICIALGAPURABOLA" target="_blank">📩 Telegram</a>
+<a href="https://https://wa.me/+6287889212439" target="_blank">💬 WhatsApp</a>
+<a href="https://www.facebook.com/profile.php?id=61585805222838" target="_blank">📘 Facebook</a>
+<a href="https://instagram.com/gapurasosmed/" target="_blank">📷 Instagram</a>
+</div>
+
+<button id="btnSosmed">☰</button>
+
+</div>
+
+<style>
+.sosmed-container{
+position:fixed;
+left:15px;
+bottom:20px;
+z-index:999999;
+}
+
+#btnSosmed{
+width:60px;
+height:60px;
+border:none;
+border-radius:15px;
+background:#111;
+color:#f7c948;
+font-size:30px;
+cursor:pointer;
+box-shadow:0 4px 10px rgba(0,0,0,.4);
+}
+
+.sosmed-text{
+position:absolute;
+left:70px;
+bottom:10px;
+width:170px; 
+background:#faab0c;
+color:#fff;
+padding:5px;
+border-radius:8px;
+font-size:12px;
+font-weight:bold;
+}
+
+.sosmed-menu{
+display:none;
+margin-bottom:10px;
+}
+
+.sosmed-menu a{
+display:block;
+background:#fff;
+color:#000;
+padding:10px;
+margin-bottom:5px;
+border-radius:8px;
+text-decoration:none;
+font-weight:bold;
+}
+</style>
+
+<script>
+document.getElementById("btnSosmed").onclick = function(){
+var menu = document.querySelector(".sosmed-menu");
+
+if(menu.style.display === "block"){
+menu.style.display = "none";
+}else{
+menu.style.display = "block";
+}
+}
+</script>
+</body>
+</html>

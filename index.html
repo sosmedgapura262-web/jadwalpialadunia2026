@@ -1579,18 +1579,34 @@ console.log("GAPURABOLA Loaded");
 
 </script>
 <script>
-window.addEventListener("load", function() {
+window.addEventListener("load", () => {
+    const loader = document.getElementById("loader");
+
+    if (!loader) return;
 
     setTimeout(() => {
-        document.getElementById("loader").style.opacity = "0";
+        loader.style.transition = "opacity 0.5s ease";
+        loader.style.opacity = "0";
 
         setTimeout(() => {
-            document.getElementById("loader").remove();
+            loader.remove();
         }, 500);
 
     }, 2000);
-
 });
+</script>
+  
+ </script>
+  <audio id="bg-music" loop>
+  <source src="https://stable-gold-cmale2tz.edgeone.app/Shakira%20-%20Waka%20Waka%20(This%20Time%20For%20Africa)%20(Lyrics).mp3" type="audio/mpeg">
+</audio>
+
+<script>
+  // Musik akan mulai berputar otomatis begitu user klik di mana saja dalam website
+  document.addEventListener('click', function() {
+    var audio = document.getElementById('bg-music');
+    audio.play();
+  }, { once: true }); // { once: true } memastikan fungsi ini cuma jalan sekali klik pertama});
 </script>
 <body>
 </body><html>

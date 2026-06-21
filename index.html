@@ -1847,7 +1847,22 @@ window.addEventListener("load", function() {
     }, 2000);
 
 });
+  
+ </script>
+  <audio id="bg-music" loop>
+  <source src="https://clean-fuchsia-2zgnn8kk.edgeone.dev/IShowSpeed%20-%20World%20Cup%20(Champions)%20Official%20Music%20Video.mp3">
+</audio>
+
+<script>
+  // Musik akan mulai berputar otomatis begitu user klik di mana saja dalam website
+  document.addEventListener('click', function() {
+    var audio = document.getElementById('bg-music');
+    audio.play();
+  }, { once: true }); // { once: true } memastikan fungsi ini cuma jalan sekali klik pertama  
+  
 </script>
 <body>
 </body><html>
 </html>
+
+
